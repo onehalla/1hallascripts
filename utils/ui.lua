@@ -1,25 +1,25 @@
 local Data = _Data or {}
 
 --// Use When Developing
-local Banner = Data.Banner or "11220387429"
+local Banner = Data.Banner or "10590477428"
 local BlackScreen = Data.Dev or false
-local HubName = Data.Name or "1halla hub"
-local HubInvite = Data.Invite or "Free Scripts"
-local HubInfo = Data.Info or "discord.gg/CAdzMB87Fj"
+local HubName = Data.Name or "Rem Hub"
+local HubInvite = Data.Invite or "BRUHH"
+local HubInfo = Data.Info or ". . . "
 --[[
-		UI Design by 1halla 
-		Code by Rem
+	UI Design by 1halla 
+	Code by Rem
 
-		Do not use without permission 
-		Dn not Share this Ui
-		Do not Modified the Source file 
-		Do not Remove or Claim the Credit 
+	Do not use without permission 
+	Dn not Share this Ui
+	Do not Modified the Source file 
+	Do not Remove or Claim the Credit 
 
-		also thank to 
-		- Signal Module 
-		- Fusion Framework [Sleithnick] [Minimize by REM]
-		- Rem Hub Owner [He/She] is very cute!
-	]]
+	also thank to 
+	- Signal Module 
+	- Fusion Framework [Sleithnick] [Minimize by REM]
+	- Rem Hub Owner [He/She] is very cute!
+]]
 local function DesFormat(str)
 	local str = tostring(str)
 	local space = "    "
@@ -147,8 +147,12 @@ do
 		local startPos
 		local function update(input)
 			local delta = input.Position - dragStart
-			local EndPos =
-				UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			local EndPos = UDim2.new(
+				startPos.X.Scale,
+				startPos.X.Offset + delta.X,
+				startPos.Y.Scale,
+				startPos.Y.Offset + delta.Y
+			)
 			local TW = game:GetService("TweenService")
 				:Create(gui, TweenInfo.new(0.1, Enum.EasingStyle.Quad), { Position = EndPos })
 			TW:Play()
@@ -1681,11 +1685,11 @@ function library:NewWindow(options)
 				LeftbarClosed = true
 
 				--[[
-					LeftbarClosed = true 
-					Leftbar.Size = UDim2.new(0,37,1,0)
-					PagesHolder.Size = UDim2.new(1,-37,0,271)
-					Topbar.Size = UDim2.new(1, -37, 0, 15)
-					]]
+				LeftbarClosed = true 
+				Leftbar.Size = UDim2.new(0,37,1,0)
+				PagesHolder.Size = UDim2.new(1,-37,0,271)
+				Topbar.Size = UDim2.new(1, -37, 0, 15)
+				]]
 			end
 			LeftbarState:Fire(not LeftbarClosed)
 			librarySetting["LeftbarClosed"] = LeftbarClosed
@@ -2353,6 +2357,7 @@ function library:NewWindow(options)
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 					BackgroundTransparency = 1,
 					Position = UDim2.new(0.943, 0, 0.5, 0),
+
 					Size = UDim2.new(0.564, 0, 1, 0),
 				}),
 
@@ -2722,6 +2727,7 @@ function library:NewWindow(options)
 				local toggle_flag = toggle_options["Flag"] or flagify(toggle_name)
 				local toggle_description = toggle_options["des"] or toggle_options["Info"] or nil
 				local toggle_icon = toggle_options["Icon"] or nil
+				local toggle_default = toggle_options["Default"] or toggle_options["Value"] or false
 
 				local ToggleContainer = New("Frame")({
 					Name = "ToggleContainer",
@@ -2807,7 +2813,7 @@ function library:NewWindow(options)
 									TextWrapped = true,
 									ClipsDescendants = true,
 									--	AutomaticSize = Enum.AutomaticSize.Y,
-									Visible = toggle_description ~= nil,
+									Visible = true, --toggle_description ~= nil ,
 									AnchorPoint = Vector2.new(0, 1),
 									Position = UDim2.new(0, 0, 1, 0),
 									TextTransparency = 0.5,
@@ -3114,13 +3120,13 @@ function library:NewWindow(options)
 
 				-- Load Saved Data
 				if toggle_autosave then
-					if toggle_flag and SavedInfo[toggle_flag] then
-						if SavedInfo[toggle_flag] == true then
-							Set(true)
-						end
+					if SavedInfo[toggle_flag] ~= nil then
+						Set(SavedInfo[toggle_flag])
+					else
+						Set(toggle_default)
 					end
 				else
-					Set(dropdown_default)
+					Set(toggle_default)
 				end
 
 				local ToggleController = MakeClickArea(ToggleClickArea, function()
@@ -3729,8 +3735,11 @@ function library:NewWindow(options)
 
 					repeat
 						wait()
-						currentvalue =
-							math.clamp((Mouse.X - SliderHolder.AbsolutePosition.X) / SliderHolder.AbsoluteSize.X, 0, 1)
+						currentvalue = math.clamp(
+							(Mouse.X - SliderHolder.AbsolutePosition.X) / SliderHolder.AbsoluteSize.X,
+							0,
+							1
+						)
 						SetPercent(currentvalue)
 						valuefrompercent = tonumber(((currentvalue * max) / max) * (max - min) + min) --(currentvalue * 100)/100 * slider_max
 						SliderBox.Text = tostring(math.round(valuefrompercent))
