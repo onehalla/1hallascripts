@@ -2065,7 +2065,7 @@ function library:NewWindow(bJ)
 							Text = cP,
 							TextColor3 = Color3.fromRGB(255, 255, 255),
 							TextSize = 13,
-							TextWrapped = true,
+							TextWrapped = false,
 							AnchorPoint = Vector2.new(0.5, 0.5),
 							AutomaticSize = Enum.AutomaticSize.X,
 							BackgroundColor3 = Color3.fromRGB(30, 30, 30),
