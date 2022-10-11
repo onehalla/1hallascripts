@@ -2177,7 +2177,7 @@ function library:NewWindow(bJ)
 									Text = g(cX),
 									TextColor3 = Color3.fromRGB(255, 255, 255),
 									TextSize = 12,
-									TextWrapped = true,
+									TextWrapped = false,
 									ClipsDescendants = true,
 									Visible = true,
 									AnchorPoint = Vector2.new(0, 1),
