@@ -5,9 +5,9 @@
 local a = _Data or {}
 local b = a.Banner or "10590477428"
 local c = a.Dev or false
-local d = a.Name or "Rem Hub"
-local e = a.Invite or "BRUHH"
-local f = a.Info or ". . . "
+local d = a.Name or "1halla hub"
+local e = a.Invite or "Free Scripts"
+local f = a.Info or "discord.gg/CAdzMB87Fj"
 local function g(h)
 	local h = tostring(h)
 	local i = "    "
@@ -2193,7 +2193,9 @@ function library:NewWindow(bJ)
 											AnchorPoint = Vector2.new(0, 0),
 											Position = UDim2.new(0, 0),
 											BackgroundColor3 = o.MainColor,
-											[k] = { F("UICorner")({ Name = "UICorner", CornerRadius = UDim.new(0, 3) }) },
+											[k] = {
+												F("UICorner")({ Name = "UICorner", CornerRadius = UDim.new(0, 3) }),
+											},
 											[l] = function(ak)
 												AddtoTheme(ak, "BackgroundColor3", "MainColor")
 											end,

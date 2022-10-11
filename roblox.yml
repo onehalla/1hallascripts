@@ -6182,6 +6182,10 @@ globals:
       - required: false
         type: any
     must_use: true
+  setclipboard:
+    args:
+      - required: false
+        type: any
   getgenv:
     args:
       - required: false
