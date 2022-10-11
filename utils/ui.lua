@@ -3,7 +3,7 @@
 ]]
 
 local a = _Data or {}
-local b = a.Banner or "10590477428"
+local b = a.Banner or ""
 local c = a.Dev or false
 local d = a.Name or "1halla hub"
 local e = a.Invite or "Free Scripts"
