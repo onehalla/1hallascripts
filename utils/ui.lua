@@ -2241,13 +2241,21 @@ function library:NewWindow(options)
 				TabTitle.Text = string.format("#%s", v.Name)
 				PageController:JumpTo(v.Container)
 				-- Toggle On
-				Tween(v.Mini_Button, 0.2, "Quad", "Out", {
-					--BackgroundColor3 =Color3.fromRGB(150,150,150),
-					BackgroundTransparency = 0.401,
-				})
+
 				Tween(v.Mini_Button.Icon, 0.2, "Quad", "Out", {
 					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
 					--ImageColor3 = CurrentTheme.MainColor
+					ImageTransparency = 0,
+				})
+				Tween(v.Button.Title, 0.2, "Quad", "Out", {
+					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
+					--ImageColor3 = CurrentTheme.MainColor
+					TextTransparency = 0,
+				})
+				Tween(v.Button.Icon, 0.2, "Quad", "Out", {
+					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
+					--ImageColor3 = CurrentTheme.MainColor
+					ImageTransparency = 0,
 				})
 
 				Tween(v.Button, 0.2, "Quad", "Out", {
@@ -2270,11 +2278,17 @@ function library:NewWindow(options)
 			else
 				Tween(v.Mini_Button, 0.2, "Quad", "Out", {
 					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
-					BackgroundTransparency = 1,
 				})
 				Tween(v.Mini_Button.Icon, 0.2, "Quad", "Out", {
 					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
 					ImageColor3 = Color3.fromRGB(255, 255, 255),
+					ImageTransparency = 0.6,
+				})
+
+				Tween(v.Button.Icon, 0.2, "Quad", "Out", {
+					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
+					--ImageColor3 = CurrentTheme.MainColor
+					ImageTransparency = 0.6,
 				})
 
 				Tween(v.Button.LeftLine, 0.2, "Quad", "Out", {
@@ -2285,6 +2299,11 @@ function library:NewWindow(options)
 				Tween(v.Button, 0.2, "Quad", "Out", {
 					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
 					BackgroundTransparency = 1,
+				})
+				Tween(v.Button.Title, 0.2, "Quad", "Out", {
+					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
+					--ImageColor3 = CurrentTheme.MainColor
+					TextTransparency = 0.6,
 				})
 
 				-- Toggle Off
