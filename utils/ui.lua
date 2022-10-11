@@ -2807,7 +2807,7 @@ function library:NewWindow(options)
 									TextWrapped = true,
 									ClipsDescendants = true,
 									--	AutomaticSize = Enum.AutomaticSize.Y,
-									Visible = true, --toggle_description ~= nil ,
+									Visible = toggle_description ~= nil,
 									AnchorPoint = Vector2.new(0, 1),
 									Position = UDim2.new(0, 0, 1, 0),
 									TextTransparency = 0.5,
@@ -3051,7 +3051,9 @@ function library:NewWindow(options)
 				Toggle_Des.MouseButton1Click:Connect(function()
 					ToggleDesc()
 				end)
-				ToggleDesc()
+				if toggle_description then
+					ToggleDesc()
+				end
 
 				local Set = function(b)
 					if b then
