@@ -1,7 +1,7 @@
 local Data = _Data or {}
 
 --// Use When Developing
-local Banner = Data.Banner or "10590477428"
+local Banner = Data.Banner or "11220387429"
 local BlackScreen = Data.Dev or false
 local HubName = Data.Name or "1halla hub"
 local HubInvite = Data.Invite or "Free Scripts"
