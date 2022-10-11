@@ -2178,7 +2178,7 @@ function library:NewWindow(bJ)
 									TextColor3 = Color3.fromRGB(255, 255, 255),
 									TextSize = 12,
 									TextWrapped = false,
-									ClipsDescendants = true,
+									ClipsDescendants = false,
 									Visible = true,
 									AnchorPoint = Vector2.new(0, 1),
 									Position = UDim2.new(0, 0, 1, 0),
