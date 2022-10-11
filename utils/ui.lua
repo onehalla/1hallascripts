@@ -2035,6 +2035,7 @@ function library:NewWindow(bJ)
 					TextWrapped = true,
 					BackgroundColor3 = Color3.fromRGB(255, 255, 255),
 					BackgroundTransparency = 1,
+					AutomaticSize = Enum.AutomaticSize.Y,
 					Size = UDim2.new(1, 0, 0, 25),
 				})
 				local cR = {}
