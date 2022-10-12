@@ -1,11 +1,11 @@
 local Data = _Data or {}
 
 --// Use When Developing
-local Banner = Data.Banner or "10590477428"
+local Banner = Data.Banner or "11220387429"
 local BlackScreen = Data.Dev or false
-local HubName = Data.Name or "Rem Hub"
-local HubInvite = Data.Invite or "BRUHH"
-local HubInfo = Data.Info or ". . . "
+local HubName = Data.Name or "1halla Hub"
+local HubInvite = Data.Invite or "discord.gg/szcFYeUd"
+local HubInfo = Data.Info or "Free Script "
 --[[
 	UI Design by 1halla 
 	Code by Rem
@@ -147,23 +147,14 @@ do
 		local startPos
 		local function update(input)
 			local delta = input.Position - dragStart
-			local EndPos = UDim2.new(
-				startPos.X.Scale,
-				startPos.X.Offset + delta.X,
-				startPos.Y.Scale,
-				startPos.Y.Offset + delta.Y
-			)
-			local TW = game:GetService("TweenService")
-				:Create(gui, TweenInfo.new(0.1, Enum.EasingStyle.Quad), { Position = EndPos })
+			local EndPos = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			local TW = game:GetService("TweenService"):Create(gui, TweenInfo.new(0.1, Enum.EasingStyle.Quad), { Position = EndPos })
 			TW:Play()
 			wait(1)
 		end
 
 		gui.InputBegan:Connect(function(input)
-			if
-				input.UserInputType == Enum.UserInputType.MouseButton1
-				or input.UserInputType == Enum.UserInputType.Touch
-			then
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 				dragging = true
 				dragStart = input.Position
 				startPos = gui.Position
@@ -176,10 +167,7 @@ do
 			end
 		end)
 		gui.InputChanged:Connect(function(input)
-			if
-				input.UserInputType == Enum.UserInputType.MouseMovement
-				or input.UserInputType == Enum.UserInputType.Touch
-			then
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 				dragInput = input
 			end
 		end)
@@ -193,8 +181,7 @@ do
 	function Tween(obj, t, easingstyle, easingdirection, goal, cb)
 		local callback = typeof(cb) == "function" and cb or function() end
 		local style = typeof(easingstyle) == "EnumItem" and easingstyle or Enum.EasingStyle[easingstyle]
-		local direction = typeof(easingdirection) == "EnumItem" and easingdirection
-			or Enum.EasingDirection[easingdirection]
+		local direction = typeof(easingdirection) == "EnumItem" and easingdirection or Enum.EasingDirection[easingdirection]
 
 		local tween = TweenService:Create(obj, TweenInfo.new(t, style, direction), goal)
 		tween:Play()
@@ -789,11 +776,7 @@ local function NewNotificationCard(type, title, info, lifetime)
 
 			New("TextLabel")({
 				Name = "Title",
-				FontFace = Font.new(
-					"rbxasset://fonts/families/GothamSSm.json",
-					Enum.FontWeight.Bold,
-					Enum.FontStyle.Normal
-				),
+				FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 				TextTransparency = 1,
 
 				Text = info,
@@ -987,11 +970,7 @@ function library:LoadingScreen()
 
 					New("TextLabel")({
 						Name = "Title",
-						FontFace = Font.new(
-							"rbxasset://fonts/families/GothamSSm.json",
-							Enum.FontWeight.Bold,
-							Enum.FontStyle.Normal
-						),
+						FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
 						Text = "1halla hub",
 						TextColor3 = Color3.fromRGB(80, 255, 176),
 						TextScaled = true,
@@ -1079,8 +1058,7 @@ function library:LoadingScreen()
 	local function Get(n)
 		return Holder:WaitForChild(n)
 	end
-	local Discord, Execute, Title, Credit, Logo =
-		Get("Discord"), Get("Execute"), Get("Title"), Get("Credit"), Get("Logo")
+	local Discord, Execute, Title, Credit, Logo = Get("Discord"), Get("Execute"), Get("Title"), Get("Credit"), Get("Logo")
 	local UIStroke = Get("UIStroke")
 	local UICorner = Get("UICorner")
 	local Opened = false
@@ -2271,14 +2249,13 @@ function library:NewWindow(options)
 					Size = UDim2.new(0, 1, 0.7, 0),
 				})
 
-				Size =
-					UDim2.new(0, 1, 0.8, 0), Tween(v.Icon, 0.1, "Linear", "Out", {
-						Rotation = 25,
-					}, function()
-						Tween(v.Icon, 0.1, "Linear", "Out", {
-							Rotation = 0,
-						})
-					end)
+				Size = UDim2.new(0, 1, 0.8, 0), Tween(v.Icon, 0.1, "Linear", "Out", {
+					Rotation = 25,
+				}, function()
+					Tween(v.Icon, 0.1, "Linear", "Out", {
+						Rotation = 0,
+					})
+				end)
 			else
 				Tween(v.Mini_Button, 0.2, "Quad", "Out", {
 					-- BackgroundColor3 = Color3.fromRGB(40,40,40)
@@ -3039,12 +3016,7 @@ function library:NewWindow(options)
 						})
 						Des_Open = true
 
-						local ActualSize = UDim2.new(
-							0,
-							Toggle_Description_Test.AbsoluteSize.X,
-							0,
-							Toggle_Description_Test.AbsoluteSize.Y
-						)
+						local ActualSize = UDim2.new(0, Toggle_Description_Test.AbsoluteSize.X, 0, Toggle_Description_Test.AbsoluteSize.Y)
 						Tween(Toggle_Description, 0.2, "Linear", "In", {
 							Size = ActualSize,
 						}, function()
@@ -3107,14 +3079,12 @@ function library:NewWindow(options)
 				end
 				ThemeChanged:Connect(function()
 					Tween(Toggle_Outline, 0.1, "Linear", "In", {
-						BackgroundColor3 = library["flags"][toggle_flag] and GetTheme("ToggleBackgroundColor_On")
-							or GetTheme("ToggleBackgroundColor_Off"),
+						BackgroundColor3 = library["flags"][toggle_flag] and GetTheme("ToggleBackgroundColor_On") or GetTheme("ToggleBackgroundColor_Off"),
 					})
 
 					Tween(CheckMark, 0.1, "Linear", "In", {
 
-						BackgroundColor3 = library["flags"][toggle_flag] and CurrentTheme.ToggleDotColor_On
-							or CurrentTheme.ToggleDotColor_Off,
+						BackgroundColor3 = library["flags"][toggle_flag] and CurrentTheme.ToggleDotColor_On or CurrentTheme.ToggleDotColor_Off,
 					})
 				end)
 
@@ -3735,11 +3705,7 @@ function library:NewWindow(options)
 
 					repeat
 						wait()
-						currentvalue = math.clamp(
-							(Mouse.X - SliderHolder.AbsolutePosition.X) / SliderHolder.AbsoluteSize.X,
-							0,
-							1
-						)
+						currentvalue = math.clamp((Mouse.X - SliderHolder.AbsolutePosition.X) / SliderHolder.AbsoluteSize.X, 0, 1)
 						SetPercent(currentvalue)
 						valuefrompercent = tonumber(((currentvalue * max) / max) * (max - min) + min) --(currentvalue * 100)/100 * slider_max
 						SliderBox.Text = tostring(math.round(valuefrompercent))
@@ -4171,8 +4137,7 @@ function library:NewWindow(options)
 				SetHandlerState(false)
 				--SetHandlerState(true)
 
-				DropdownHandlerList:GetPropertyChangedSignal("AbsoluteContentSize")
-					:Connect(ChangeDropdownButtonHolderSize)
+				DropdownHandlerList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(ChangeDropdownButtonHolderSize)
 				ChangeDropdownButtonHolderSize()
 
 				MakeClickArea(DropdownBackground, function()
