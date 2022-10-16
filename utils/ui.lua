@@ -473,17 +473,17 @@ end
 
 local Signal = GetSignal()
 
-local library = {}
+local library = {
+	Name = "1halla hub",
+	SaveConfig = {
+		SeperatePlayer = true,
+		MainPathName = "OneHalla_Hub",
+	},
+	flags = {},
+}
 library.__index = library
 function library.new()
-	return setmetatable({
-		Name = "1halla hub",
-		SaveConfig = {
-			SeperatePlayer = true,
-			MainPathName = "OneHalla_Hub",
-		},
-		flags = {},
-	}, library)
+	return setmetatable({}, library)
 end
 
 local SavedInfo = {}
