@@ -536,7 +536,10 @@ do
 
 	librarySetting = HttpService:JSONDecode(readfile(LibrarySettingFile))
 end
-
+library.__index = library
+function library.new()
+	return setmetatable({}, library)
+end
 function library:LoadAutoSave(input)
 	local SaveName = (input == "Auto" and tostring(game.GameId)) or tostring(input)
 
