@@ -1,11 +1,9 @@
-
 local Maid = {}
 Maid.ClassName = "Maid"
 
-
 function Maid.new()
 	return setmetatable({
-		_tasks = {}
+		_tasks = {},
 	}, Maid)
 end
 
@@ -51,10 +49,10 @@ function Maid:GiveTask(task)
 		error("Task cannot be false or nil", 2)
 	end
 
-	local taskId = #self._tasks+1
+	local taskId = #self._tasks + 1
 	self[taskId] = task
 
-	if type(task) == "table" and (not task.Destroy) then
+	if type(task) == "table" and not task.Destroy then
 		warn("[Maid.GiveTask] - Gave table task without .Destroy\n\n" .. debug.traceback())
 	end
 
@@ -80,14 +78,12 @@ end
 function Maid:DoCleaning()
 	local tasks = self._tasks
 
-	
 	for index, task in pairs(tasks) do
 		if typeof(task) == "RBXScriptConnection" then
 			tasks[index] = nil
 			task:Disconnect()
 		end
 	end
-
 
 	local index, task = next(tasks)
 	while task ~= nil do
@@ -104,5 +100,6 @@ function Maid:DoCleaning()
 end
 
 Maid.Destroy = Maid.DoCleaning
+Maid.Add = Maid.GiveTask
 
 return Maid

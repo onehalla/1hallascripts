@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-index, redefined-local
 local library = { count = 0, queue = {}, callbacks = {}, rainbowtable = {}, toggled = true, binds = {} }
 local defaults
 do
@@ -18,24 +19,10 @@ do
 				event:connect(function()
 					local input = frame.InputBegan:connect(function(key)
 						if key.UserInputType == Enum.UserInputType.MouseButton1 then
-							local objectPosition =
-								Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y)
-							while
-								heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1)
-							do
+							local objectPosition = Vector2.new(mouse.X - frame.AbsolutePosition.X, mouse.Y - frame.AbsolutePosition.Y)
+							while heartbeat:wait() and inputService:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) do
 								pcall(function()
-									frame:TweenPosition(
-										UDim2.new(
-											0,
-											mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X),
-											0,
-											mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)
-										),
-										"Out",
-										"Linear",
-										0.1,
-										true
-									)
+									frame:TweenPosition(UDim2.new(0, mouse.X - objectPosition.X + (frame.Size.X.Offset * frame.AnchorPoint.X), 0, mouse.Y - objectPosition.Y + (frame.Size.Y.Offset * frame.AnchorPoint.Y)), "Out", "Linear", 0.1, true)
 								end)
 							end
 						end
@@ -190,8 +177,7 @@ do
 		end
 
 		function types:Label(text)
-			local v = game:GetService("TextService")
-				:GetTextSize(text, 18, Enum.Font.SourceSans, Vector2.new(math.huge, math.huge))
+			local v = game:GetService("TextService"):GetTextSize(text, 18, Enum.Font.SourceSans, Vector2.new(math.huge, math.huge))
 			local object = library:Create("Frame", {
 				Size = UDim2.new(1, 0, 0, v.Y + 5),
 				BackgroundTransparency = 1,
@@ -467,16 +453,8 @@ do
 				local name = tostring(a.KeyCode.Name)
 				local typeName = tostring(a.UserInputType.Name)
 
-				if
-					(
-						a.UserInputType ~= Enum.UserInputType.Keyboard
-						and allowed[a.UserInputType.Name]
-						and not keyboardOnly
-					) or (a.KeyCode and not banned[a.KeyCode.Name])
-				then
-					local name = (
-						a.UserInputType ~= Enum.UserInputType.Keyboard and a.UserInputType.Name or a.KeyCode.Name
-					)
+				if (a.UserInputType ~= Enum.UserInputType.Keyboard and allowed[a.UserInputType.Name] and not keyboardOnly) or (a.KeyCode and not banned[a.KeyCode.Name]) then
+					local name = (a.UserInputType ~= Enum.UserInputType.Keyboard and a.UserInputType.Name or a.KeyCode.Name)
 					location[flag] = a
 					button.Text = shortNames[name] or name
 				else
@@ -487,11 +465,7 @@ do
 							local name = tostring(location[flag])
 							button.Text = shortNames[name] or name
 						else
-							local name = (
-								location[flag].UserInputType ~= Enum.UserInputType.Keyboard
-									and location[flag].UserInputType.Name
-								or location[flag].KeyCode.Name
-							)
+							local name = (location[flag].UserInputType ~= Enum.UserInputType.Keyboard and location[flag].UserInputType.Name or location[flag].KeyCode.Name)
 							button.Text = shortNames[name] or name
 						end
 					end
@@ -641,8 +615,7 @@ do
 
 					renderSteppedConnection = game:GetService("RunService").RenderStepped:connect(function()
 						local mouse = game:GetService("UserInputService"):GetMouseLocation()
-						local percent = (mouse.X - overlay.Container.AbsolutePosition.X)
-							/ overlay.Container.AbsoluteSize.X
+						local percent = (mouse.X - overlay.Container.AbsolutePosition.X) / overlay.Container.AbsoluteSize.X
 						percent = math.clamp(percent, 0, 1)
 						percent = tonumber(string.format("%.2f", percent))
 
@@ -811,8 +784,7 @@ do
 										child:Destroy()
 									end
 								end
-								box:FindFirstChild("Box").Container
-									:TweenSize(UDim2.new(1, 0, 0, 0), "Out", "Quad", 0.25, true)
+								box:FindFirstChild("Box").Container:TweenSize(UDim2.new(1, 0, 0, 0), "Out", "Quad", 0.25, true)
 							end)
 						end
 					end
@@ -952,8 +924,7 @@ do
 					})
 
 					btn.MouseButton1Click:connect(function()
-						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").TextColor3 =
-							library.options.textcolor
+						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").TextColor3 = library.options.textcolor
 						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").Text = btn.Text
 
 						location[flag] = tostring(btn.Text)
@@ -978,8 +949,7 @@ do
 
 				input = game:GetService("UserInputService").InputBegan:connect(function(a)
 					if a.UserInputType == Enum.UserInputType.MouseButton1 and (not isInGui(container)) then
-						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").TextColor3 =
-							library.options.textcolor
+						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").TextColor3 = library.options.textcolor
 						check:FindFirstChild("dropdown_lbl"):WaitForChild("Selection").Text = location[flag]
 
 						container:TweenSize(UDim2.new(1, 0, 0, 0), "In", "Quad", 0.15, true)
