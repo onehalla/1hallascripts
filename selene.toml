@@ -1,4 +1,5 @@
 std = "roblox"
-exclude = ["utils/*","utils/1hallahub_utils/*", "*.spec.lua"]
+exclude = ["utils/*","utils/1hallahub_utils/*", "*.spec.lua","debug/*"]
 [lints]
-exclude = ["utils/*","utils/1hallahub_utils/*", "*.spec.lua"]
+exclude = ["utils/*","utils/1hallahub_utils/*", "*.spec.lua","debug/*"]
+
