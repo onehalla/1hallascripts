@@ -578,7 +578,7 @@ function lib:Window(text)
 			end
 		end
 
-		function tab:Textbox(text, disapeer, callback)
+		function tab:Textbox(text, default, disapeer, callback)
 			callback = callback or function(...) end
 			local textbox = Instance.new("Frame")
 			local title = Instance.new("TextLabel")
@@ -620,7 +620,7 @@ function lib:Window(text)
 			textboxmain.BorderSizePixel = 0
 			textboxmain.Size = UDim2.new(0, 165, 0, 26)
 			textboxmain.Font = Enum.Font.Gotham
-			textboxmain.Text = ""
+			textboxmain.Text = default or ""
 			textboxmain.TextColor3 = Color3.fromRGB(255, 255, 255)
 			textboxmain.TextSize = 14.000
 			container.CanvasSize = UDim2.new(0, 0, 0, containerlist.AbsoluteContentSize.Y + 10)
