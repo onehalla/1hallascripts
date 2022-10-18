@@ -256,7 +256,7 @@ function lib:Window(text)
 			button.Text = text
 			button.TextColor3 = Color3.fromRGB(255, 255, 255)
 			button.TextSize = 14.000
-			button.Size = UDim2.new(0, button.TextBounds.X + 15, 0, 27)
+			button.Size = UDim2.new(1, 0, 0, 27)
 			button.ClipsDescendants = true
 			container.CanvasSize = UDim2.new(0, 0, 0, containerlist.AbsoluteContentSize.Y + 10)
 
