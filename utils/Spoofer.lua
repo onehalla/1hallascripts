@@ -48,3 +48,5 @@ mt.__index = newcclosure(function(o, p)
 
 	return old(o, p)
 end)
+
+return true
