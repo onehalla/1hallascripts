@@ -32,7 +32,6 @@ end
 
 getgenv().replace = function(obj, property, newval)
 	unspoof(obj, property)
-	task.wait()
 	spoof(obj, property, newval)
 end
 
