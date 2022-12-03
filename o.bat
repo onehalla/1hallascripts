@@ -1,1 +1,1 @@
-lua C:/Prometheus/cli.lua --preset Strong ./Release.lua
+lua C:/Prometheus/cli.lua --preset Weak --out ./release/viperhub.lua ./hub/free.lua 
