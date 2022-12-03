@@ -6,13 +6,6 @@ return {
     Seed = 0,
     Steps = {
         {
-            Name = "EncryptStrings";
-            Settings = {
-
-            };
-        },
-        
-        {
             Name = "Vmify";
             Settings = {
                 
@@ -23,15 +16,6 @@ return {
             Settings = {
                 Treshold    = 1;
                 StringsOnly = true;
-                Shuffle     = true;
-                Rotate      = true;
-                LocalWrapperTreshold = 0;
-            }
-        },
-        {
-            Name = "NumbersToExpressions";
-            Settings = {
-
             }
         },
         {
