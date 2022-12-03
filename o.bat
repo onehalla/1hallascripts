@@ -1,1 +1,1 @@
-lua C:/Prometheus/cli.lua --preset Weak --out ./release/viperhub.lua ./hub/free.lua 
+lua C:/Prometheus/cli.lua  --preset Custom --out ./release/viperhub.lua ./hub/free.lua --nocolors

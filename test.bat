@@ -1,0 +1,1 @@
+lua C:/Prometheus/cli.lua  --preset Custom --out ./test/obfucation.lua ./test.lua 
