@@ -1,11 +1,11 @@
-local Data = _Data or {}
+local Data = _G.Data or {}
 
 --// Use When Developing
-local Banner = Data.Banner or "11220387429"
+local Banner = Data.Banner or _G.Banner or "11220387429"
 local BlackScreen = Data.Dev or false
 local HubName = Data.Name or "1halla Hub"
-local HubInvite = Data.Invite or "discord.gg/szcFYeUd"
-local HubInfo = Data.Info or "Free Script "
+local HubInvite = Data.Invite or "Free"
+local HubInfo = Data.Info or "Beta Version "
 --[[
         UI Design by 1halla 
         Code by Rem
@@ -60,7 +60,7 @@ local ThemeList = {
 }
 local White = Color3.fromRGB(255, 255, 255)
 
-local CurrentTheme = ThemeList.Default
+local CurrentTheme = _G.Theme or ThemeList.Default
 local function GetTheme(props)
 	return CurrentTheme[props] or ThemeList["Default"][props]
 end
