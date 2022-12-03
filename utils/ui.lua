@@ -2228,7 +2228,7 @@ function library:NewWindow(options)
 		EasingStyle = Enum.EasingStyle.Quad,
 		Padding = UDim.new(0, 10),
 		Parent = PagesHolder,
-		TweenTime = 0.2,
+		TweenTime = 0.6,
 		FillDirection = Enum.FillDirection.Vertical,
 		SortOrder = Enum.SortOrder.LayoutOrder,
 		GamepadInputEnabled = false,
