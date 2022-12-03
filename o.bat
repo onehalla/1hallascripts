@@ -1,1 +1,1 @@
-lua C:/Prometheus/cli.lua  --preset Custom --out ./release/viperhub.lua ./hub/free.lua --nocolors
+pm  --c ./config.lua --out ./release/viperhub.lua ./hub/free.lua --nocolors
