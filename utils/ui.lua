@@ -906,7 +906,7 @@ local AllMode = {
 		Callback = function()
 			ToggleUI.Visible = true
 			Tween(Background, 0.2, "Quad", "In", {
-				Size = UDim2.new(0, 550, 0, 600),
+				Size = UDim2.new(0, 600, 0, 550),
 			}, function()
 				CleanConnection()
 				-- Tab_Container.UIListLayout.FillDirection = Enum.FillDirection.Horizontal
