@@ -3,3 +3,5 @@ hub
 debug
 source
 test
+Release.lua
+obf.bat

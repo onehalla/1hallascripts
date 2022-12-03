@@ -1,0 +1,1 @@
+lua C:/Prometheus/cli.lua --preset Strong ./Release.lua
