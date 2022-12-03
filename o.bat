@@ -1,1 +1,1 @@
-pm  --c ./config.lua --out ./release/viperhub.lua ./hub/free.lua --nocolors --LuaU
+pm  --p Weak --out ./release/viperhub.lua ./hub/free.lua --nocolors --LuaU
